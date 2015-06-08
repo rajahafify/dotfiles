@@ -50,6 +50,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 echo "Installing zsh"
 brew install zsh
 
+echo "Installing oh-my-zsh"
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
 echo "Installing antigen"
 source ~/antigen/antigen.zsh
 
