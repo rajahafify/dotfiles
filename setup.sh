@@ -22,7 +22,7 @@ echo "...done"
 echo "Changing to the $dir directory"
 cd $dir
 echo "Updating script"
-git stash && git pull && git submodule init -f && git submodule update && git submodule status
+git stash && git pull && git submodule deinit -f && git submodule update && git submodule status
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
