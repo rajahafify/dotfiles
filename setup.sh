@@ -11,11 +11,6 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 dotfiles="vimrc vim zshrc"    # list of files/folders to symlink in homedir
 folders="antigen"
 
-##########
-echo "Updating script"
-git stash && git pull && git submodule init && git submodule update && git submodule status
-echo "...done"
-
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
