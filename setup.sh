@@ -26,20 +26,6 @@ echo "...done"
 echo "Changing to the $dir directory"
 cd $dir
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $dotfiles; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/.$file ~/.$file
-done
-
-for folder in $folders; do
-    echo "Moving existing folder from ~ to $olddir"
-    mv ~/$folder ~/dotfiles_old/
-    echo "Creating symlink to $folder in home directory."
-    ln -s $dir/$folder ~/$folder
-done
 
 
 
@@ -63,3 +49,19 @@ brew install gnupg gnupg2
 echo "Installing rvm"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | zsh -s stable --ruby
+
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+for file in $dotfiles; do
+    echo "Moving any existing dotfiles from ~ to $olddir"
+    mv ~/.$file ~/dotfiles_old/
+    echo "Creating symlink to $file in home directory."
+    ln -s $dir/.$file ~/.$file
+done
+
+for folder in $folders; do
+    echo "Moving existing folder from ~ to $olddir"
+    mv ~/$folder ~/dotfiles_old/
+    echo "Creating symlink to $folder in home directory."
+    ln -s $dir/$folder ~/$folder
+done
+
