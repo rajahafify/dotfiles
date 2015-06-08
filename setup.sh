@@ -22,7 +22,7 @@ echo "...done"
 echo "Changing to the $dir directory"
 cd $dir
 echo "Updating script"
-git stash && git pull && git submodule deinit -f && git submodule update && git submodule status
+git stash && git pull && git submodule init && git submodule update && git submodule status
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
@@ -41,12 +41,17 @@ for folder in $folders; do
 done
 
 
-echo "Installing antigen"
-source ~/antigen/antigen.zsh
 
 # installing brew
 echo "Installing homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# installing zsh
+echo "Installing zsh"
+brew install zsh
+
+echo "Installing antigen"
+source ~/antigen/antigen.zsh
 
 echo "Installing GPG"
 brew install gnupg gnupg2
