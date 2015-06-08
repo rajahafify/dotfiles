@@ -8,8 +8,7 @@
 
 dir=~/dotfiles                          # dotfiles directory
 olddir=~/dotfiles_old                   # old dotfiles backup directory
-dotfiles="vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
-folders="antigen"
+dotfiles="vimrc vim zshrc"    # list of files/folders to symlink in homedir
 
 
 # create dotfiles_old in homedir
@@ -29,11 +28,16 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 echo "Installing zsh"
 brew install zsh
 
-echo "Installing oh-my-zsh"
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+echo "Installing prezto"
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+chsh -s /bin/zsh
 
 echo "Installing GPG"
-brew install gnupg gnupg2
+brew install gnupg2
 
 echo "Installing rvm"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -45,11 +49,4 @@ for file in $dotfiles; do
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/.$file ~/.$file
-done
-
-for folder in $folders; do
-    echo "Moving existing folder from ~ to $olddir"
-    mv ~/$folder ~/dotfiles_old/
-    echo "Creating symlink to $folder in home directory."
-    ln -s $dir/$folder ~/$folder
 done
