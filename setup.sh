@@ -21,6 +21,8 @@ echo "...done"
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
 cd $dir
+echo "Updating script"
+git pull && git submodule init && git submodule update && git submodule status
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
