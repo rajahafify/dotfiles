@@ -1,18 +1,16 @@
-source ~/antigen/antigen.zsh
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-#
-# # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle command-not-found
-#
-# # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-#
-# # Load the theme.
-antigen theme robbyrussell
-#
-# # Tell antigen that you're done.
-antigen apply
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# alias vim with mvim
+alias vim='/path/to/MacVim.app/Contents/MacOS/Vim'
