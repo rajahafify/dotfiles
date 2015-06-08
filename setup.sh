@@ -35,9 +35,6 @@ brew install zsh
 echo "Installing oh-my-zsh"
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
-echo "Installing antigen"
-source ~/antigen/antigen.zsh
-
 echo "Installing GPG"
 brew install gnupg gnupg2
 
@@ -60,3 +57,5 @@ for folder in $folders; do
     ln -s $dir/$folder ~/$folder
 done
 
+echo "Installing antigen"
+source ~/antigen/antigen.zsh
