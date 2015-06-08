@@ -33,7 +33,7 @@ done
 
 for folder in $folders; do
     echo "Moving existing folder from ~ to $olddir"
-    mv ~/.$folder ~/dotfiles_old/
+    mv ~/$folder ~/dotfiles_old/
     echo "Creating symlink to $folder in home directory."
     ln -s $dir/$folder ~/$folder
 done
