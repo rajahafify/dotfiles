@@ -13,4 +13,4 @@ fi
 # Customize to your needs...
 
 # alias vim with mvim
-alias vim='/path/to/MacVim.app/Contents/MacOS/Vim'
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'

@@ -10,6 +10,9 @@ dir=~/dotfiles                          # dotfiles directory
 olddir=~/dotfiles_old                   # old dotfiles backup directory
 dotfiles="vimrc vim zshrc"    # list of files/folders to symlink in homedir
 
+echo "Setting up xcode-cli"
+xcode-select --install
+
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
