@@ -6,9 +6,9 @@
 
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-dotfiles="vimrc vim zshrc"    # list of files/folders to symlink in homedir
+dir=~/dotfiles                          # dotfiles directory
+olddir=~/dotfiles_old                   # old dotfiles backup directory
+dotfiles="vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 folders="antigen"
 
 
@@ -20,9 +20,6 @@ echo "...done"
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
 cd $dir
-
-
-
 
 # installing brew
 echo "Installing homebrew"
@@ -56,6 +53,3 @@ for folder in $folders; do
     echo "Creating symlink to $folder in home directory."
     ln -s $dir/$folder ~/$folder
 done
-
-echo "Installing antigen"
-source ~/antigen/antigen.zsh
